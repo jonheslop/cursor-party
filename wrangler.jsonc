@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cursor-party",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "Main", "class_name": "PresenceServer" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PresenceServer"] }],
+  "vars": {
+    // URLPattern list of sites allowed to connect (JSON string)
+    "WEBSITES": "[\"https://cursor-party.*.workers.dev/*\", \"https://(www.)?gif.land/*\", \"https://(www.)?gifs.jonheslop.com/*\", \"https://home.gif.land/*\", \"https://gif-land-2026.pages.dev/*\"]"
+  },
+  "observability": { "enabled": true }
+}

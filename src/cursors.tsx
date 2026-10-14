@@ -3,7 +3,10 @@ import { render } from "react-dom";
 import PresenceProvider from "./presence/presence-context";
 import Cursors from "./presence/Cursors";
 
-declare const PARTYKIT_HOST: string;
+// Connect back to whichever host served this script
+const PARTY_HOST = new URL(
+  (document.currentScript as HTMLScriptElement | null)?.src ?? window.location.href
+).host;
 
 const pageId = window?.location.href
   ? btoa(window.location.href.split(/[?#]/)[0])
@@ -12,7 +15,7 @@ const pageId = window?.location.href
 function App() {
   return (
     <PresenceProvider
-      host={PARTYKIT_HOST}
+      host={PARTY_HOST}
       room={pageId}
       presence={{
         name: "Anonymous User",

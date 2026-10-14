@@ -3,20 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "partykit dev",
-    "deploy": "partykit deploy --with-vars"
+    "build": "node scripts/build.mjs && node scripts/splash-script.mjs",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "types": "wrangler types"
   },
   "dependencies": {
     "@msgpack/msgpack": "^3.0.0-beta2",
     "@preact/compat": "^17.1.2",
-    "partysocket": "0.0.17",
+    "partyserver": "^0.5.10",
+    "partysocket": "^1.3.0",
+    "zod": "^3.22.4",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "dotenv": "^16.3.1",
-    "partykit": "^0.0.0-1dfa367",
-    "typescript": "^5.3.3"
+    "esbuild": "^0.28.2",
+    "typescript": "^5.3.3",
+    "wrangler": "^4.151.0"
   }
 }
