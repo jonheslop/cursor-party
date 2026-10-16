@@ -13,7 +13,9 @@
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PresenceServer"] }],
   "vars": {
     // URLPattern list of sites allowed to connect (JSON string)
-    "WEBSITES": "[\"https://cursor-party.*.workers.dev/*\", \"https://(www.)?gif.land/*\", \"https://(www.)?gifs.jonheslop.com/*\", \"https://home.gif.land/*\", \"https://gif-land-2026.pages.dev/*\"]"
+    "WEBSITES": "[\"https://cursors.gif.land/*\", \"https://cursor-party.*.workers.dev/*\", \"https://(www.)?gif.land/*\", \"https://(www.)?gifs.jonheslop.com/*\", \"https://home.gif.land/*\", \"https://gif-land-2026.pages.dev/*\"]"
   },
+  "workers_dev": true,
+  "routes": [{ "pattern": "cursors.gif.land", "custom_domain": true }],
   "observability": { "enabled": true }
 }
